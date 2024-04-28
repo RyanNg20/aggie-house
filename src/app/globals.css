@@ -10,7 +10,7 @@
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255;
+  --foreground-rgb: #DCCCC0;
   --text-rgb: 0,0,0;
 
 }
@@ -25,5 +25,6 @@
 
 body {
   color: rgb(var(--text-rgb));
-  background-color: rgb(var(--foreground-rgb));
+  background-color: var(--foreground-rgb);
+  height: 100vh;
 }
