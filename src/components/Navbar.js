@@ -26,6 +26,7 @@ const Navbar = ()  => {
                     <Link href="todo" className="hover:text-white transition duration-500"> To Do </Link>
                     <Link href="/resources" className="hover:text-white transition duration-500"> Resources </Link>
                     <Link href="/leaderboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
+                    <img src={props.user.profileImage} className="w-10 h-10 rounded-full"/>
                 </div>
             ) : ( <button className="rounded-full bg-black p-2" 
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
