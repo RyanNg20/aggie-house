@@ -3,6 +3,12 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('../assets/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  /* Add additional font weights and styles if needed */
+}
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --text-rgb: 0,0,0;

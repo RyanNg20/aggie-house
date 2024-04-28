@@ -1,25 +1,27 @@
 "use client";
+
 import { useState } from "react";
 import Link from 'next/link';
 import useMediaQuery from "../hooks/useMediaQuery";
 import Image from "next/image";
+
 
 const Navbar = ()  => {
     const [isMenuToggled, setIsMenuToggled] = useState(false);
     const isAboveSmallScreens = useMediaQuery("(min-width: 870px)");
 
     return(
-        <nav className = {`bg-beige z-40 w-full fixed top-0 py-4`}>
+        <nav className = {`bg-grey z-40 w-full fixed top-0 py-4`}>
             <div className="flex items-center justify-between mx-auto w-5/6">
             <Link href="/dashboard" passHref>
             <div className="flex flex-row justify-center items-center gap-4">
-                <Image className="my-auto" src={require("../assets/Logo.png")} width={60}></Image>
-                <h1 className="font-bold text-grey">Aggie House Volunteers</h1>
+                <Image className="my-auto" src={require("../assets/Logo.png")} width={50}></Image>
+                <h1 className="font-bold font-josefin_sans text-beige">Aggie House Volunteers</h1>
             </div>
             </Link>
             {/* DESKTOP NAV */}
             {isAboveSmallScreens ? (
-                <div className="text-grey font-montserrat flex justify-between gap-8 items-center text-lg font-medium">
+                <div className="text-beige font-montserrat flex justify-between gap-8 items-center text-lg font-medium">
                     <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> To Do </Link>
                     <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Calendar </Link>
                     <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Resources </Link>
@@ -43,7 +45,7 @@ const Navbar = ()  => {
                     </button>
                  </div>
                   {/* MENU ITEMS */}
-                  <div className="flex flex-col font-montserrat gap-10 ml-[33%] text-2xl text-grey"> 
+                  <div className="flex flex-col font-montserrat gap-10 ml-[33%] text-2xl text-beige"> 
                     <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> To Do </Link>
                     <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Calendar </Link>
                     <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Resources </Link>

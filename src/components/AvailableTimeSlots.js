@@ -15,6 +15,12 @@ const AvailableTimeSlots = () => {
     fetchTimeSlots(newDate);
   };
 
+  const handleReserve = () => {
+    // fetch(`https://aggie-house-backend.onrender.com/timeSlots/add`, {
+    //   method: "POST"
+    // })
+  }
+
   const fetchTimeSlots = (date) => {
     const formattedDate = dayjs(date).format('YYYY-MM-DD');
     fetch(`https://aggie-house-backend.onrender.com/timeSlots/available`)
@@ -25,7 +31,7 @@ const AvailableTimeSlots = () => {
       })
       .catch(error => console.error('Error fetching available time slots:', error));
   };
-
+  console.log(availableSlots)
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <div>
@@ -40,7 +46,7 @@ const AvailableTimeSlots = () => {
             {availableSlots.map(slot => (
               <li key={slot._id}>
                 {dayjs(slot.startTime).format('HH:mm')} - {dayjs(slot.endTime).format('HH:mm')}
-                <button>Reserve</button> 
+                <button onClick={handleReserve}>Reserve</button> 
               </li>
             ))}
           </ul>
