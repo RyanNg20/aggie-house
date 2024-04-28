@@ -9,7 +9,7 @@ import { withAuthInfo } from '@propelauth/react'
 
 const Dashboard = withAuthInfo((props) => {
   return (
-    <main className="bg-white">
+    <main className="bg-white font-josefin_sans">
       <Navbar />
       <div className="flex min-h-screen flex-col justify-between p-24 gap-6">
         <div className="flex flex-row items-center gap-4 mt-4 py-2">
@@ -17,7 +17,7 @@ const Dashboard = withAuthInfo((props) => {
             <h1 className="text-grey text-4xl font-josefin_sans"> Dashboard </h1>
         </div>
         <ShiftsComponent/>
-        <div className="flex flex-col md:flex-row md:justify-between justify-center">
+        <div className="flex flex-col md:flex-row md:justify-between justify-center gap-4">
           <AvailableTimeSlots />
           <HourTracker />
         </div>
