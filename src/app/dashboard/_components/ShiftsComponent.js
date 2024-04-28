@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { withAuthInfo } from '@propelauth/react';
+import moment from 'moment';
 
 const ShiftsComponent = withAuthInfo((props) => {
   const [upcomingShifts, setUpcomingShifts] = useState([]);
@@ -38,17 +39,20 @@ const ShiftsComponent = withAuthInfo((props) => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div>
+          <div className='flex flex-col gap-4'>
             {upcomingShifts.length > 0 ? (
-              upcomingShifts.map((shift, index) => (
-                <div key={index} className="w-full py-3 px-8 flex flex-col justify-between bg-white rounded-2xl md:flex-row">
-                  <div className="flex flex-col">
-                    <p className="font-montserrat text-lg font-bold">{shift.date}</p>
-                    <p className="font-montserrat text-lg font-medium">{shift.startTime} - {shift.endTime} ({shift.duration} hours)</p>
+              upcomingShifts.map((shift, index) => {
+                // console.log(shift.date, typeof(shift.date.toString()))
+                return (
+                  <div key={index} className="w-full py-3 px-8 flex flex-col justify-between bg-white rounded-2xl md:flex-row">
+                    <div className="flex flex-col">
+                      <p className="font-montserrat text-lg font-bold">{moment(shift.date).format("MMM DD, YYYY HH:MM")}</p>
+                      <p className="font-montserrat text-lg font-medium">{moment(shift.startTime).format("MMM DD, YYYY HH:MM")} - {moment(shift.endTime).format("MMM DD, YYYY HH:MM")}</p>
+                    </div>
+                    <div className="font-montserrat bg-grey text-white rounded-md transition duration-500 hover:bg-beige px-8 py-2 hover:text-grey flex items-center cursor-pointer justify-center">Remove</div>
                   </div>
-                  <div className="font-montserrat bg-grey text-white rounded-md transition duration-500 hover:bg-beige px-8 py-2 hover:text-grey flex items-center cursor-pointer justify-center">Remove</div>
-                </div>
-              ))
+                )
+            })
             ) : (
               <p className='text-white font-josefin_sans'>No upcoming shifts</p>
             )}
@@ -61,13 +65,13 @@ const ShiftsComponent = withAuthInfo((props) => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div>
+          <div className='flex flex-col gap-4'>
             {availableShifts.length > 0 ? (
               availableShifts.map((shift, index) => (
                 <div key={index} className="w-full py-3 px-8 flex flex-col justify-between bg-white rounded-2xl md:flex-row">
                   <div className="flex flex-col">
-                    <p className="font-montserrat text-lg font-bold">{shift.date}</p>
-                    <p className="font-montserrat text-lg font-medium">{shift.startTime} - {shift.endTime} ({shift.duration} hours)</p>
+                    <p className="font-montserrat text-lg font-bold">{moment(shift.date).format("MMM DD, YYYY HH:MM")}</p>
+                    <p className="font-montserrat text-lg font-medium">{moment(shift.startTime).format("MMM DD, YYYY HH:MM")} - {moment(shift.endTime).format("MMM DD, YYYY HH:MM")}</p>
                   </div>
                   <div className="font-montserrat bg-grey text-white rounded-md transition duration-500 hover:bg-beige px-8 py-2 hover:text-grey flex items-center cursor-pointer justify-center">Remove</div>
                 </div>
