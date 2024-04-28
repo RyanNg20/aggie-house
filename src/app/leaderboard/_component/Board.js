@@ -36,12 +36,12 @@ const Board = () => {
       ) : (
         <>
         <div className="w-full bg-beige flex flex-col gap-4 px-4 pt-4 rounded-2xl drop-shadow-lg">
-            <h1>Leaderboard</h1>
             <ul>
                 {users.map((user) => (
-                <li key={user._id}>
+                <li key={user._id} className='flex flex-row bg-white px-5 py-2 rounded-2xl mb-2'>
                     <p>{user.name}</p>
-                    {/* Add other user details here */}
+                    <p>{user.levels}</p>
+                    <p>{user.volunteerHours}</p>
                 </li>
                 ))}
             </ul>

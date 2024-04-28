@@ -5,7 +5,6 @@ import { withAuthInfo } from '@propelauth/react';
 const HourTracker = withAuthInfo(({ props }) => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchUserData = async () => {
       try {

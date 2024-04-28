@@ -16,10 +16,9 @@ const AvailableTimeSlots = () => {
   };
 
   const handleReserve = () => {
-    // fetch(`https://aggie-house-backend.onrender.com/timeSlots/add`, {
-    //   method: "POST"
-    // })
-  }
+    // Implement your logic for reserving time slot here
+    // Example: call API to reserve time slot
+  };
 
   const fetchTimeSlots = (date) => {
     const formattedDate = dayjs(date).format('YYYY-MM-DD');
@@ -31,7 +30,7 @@ const AvailableTimeSlots = () => {
       })
       .catch(error => console.error('Error fetching available time slots:', error));
   };
-  console.log(availableSlots)
+
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <div className='bg-grey rounded-2xl p-4 md:w-calc(1/2 - 20px) w-full flex flex-col gap-4 drop-shadow-lg'>
@@ -47,9 +46,11 @@ const AvailableTimeSlots = () => {
             {availableSlots.map(slot => (
               <li key={slot._id} className='bg-beige rounded p-4 flex flex-col gap-2'>
                 <div className='flex flex-col md:flex-row justify-between'>
-                    {dayjs(slot.startTime).format('HH:mm')} - {dayjs(slot.endTime).format('HH:mm')}
-                    <button onClick={handleReserve} className='font-montserrat bg-grey text-white rounded-md transition 
-                    duration-500 hover:bg-white px-8 py-2 hover:text-grey flex items-center cursor-pointer justify-center'>Sign Up</button> 
+                  <div>
+                    <p className='font-montserrat'>{dayjs(slot.date).format('MMM DD, YYYY')}</p>
+                    <p className='font-montserrat'>{dayjs(slot.startTime).format('hh:mm A')} - {dayjs(slot.endTime).format('hh:mm A')}</p>
+                  </div>
+                  <button onClick={handleReserve} className='font-montserrat bg-grey text-white rounded-md transition duration-500 hover:bg-white px-8 py-2 hover:text-grey flex items-center cursor-pointer justify-center'>Sign Up</button> 
                 </div>
                 <p className='font-montserrat font-medium'> Kelly Phan is working this shift too.</p>
               </li>
