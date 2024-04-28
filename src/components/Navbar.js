@@ -11,6 +11,7 @@ const Navbar = withAuthInfo((props)  => {
     const [isMenuToggled, setIsMenuToggled] = useState(false);
     const isAboveSmallScreens = useMediaQuery("(min-width: 870px)");
 
+    console.log(props.user)
     return(
         <nav className = {`bg-grey z-40 w-full fixed top-0 py-4`}>
             <div className="flex items-center justify-between mx-auto w-5/6">
@@ -26,6 +27,7 @@ const Navbar = withAuthInfo((props)  => {
                     <Link href="/dashboard" className="hover:text-white transition duration-500"> To Do </Link>
                     <Link href="/dashboard" className="hover:text-white transition duration-500"> Resources </Link>
                     <Link href="/dashboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
+                    <img src={props.user.pictureUrl} className="w-10 h-10 rounded-full"/>
                 </div>
             ) : ( <button className="rounded-full bg-black p-2" 
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
