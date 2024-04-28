@@ -6,23 +6,72 @@ import AvailableTimeSlots from "@/app/dashboard/_components/AvailableTimeSlots";
 import ShiftsComponent from "./_components/ShiftsComponent";
 import HourTracker from "./_components/HourTracker";
 import { withAuthInfo } from '@propelauth/react'
+import { useEffect } from "react";
 
 const Dashboard = withAuthInfo((props) => {
-  const handleClick = async () => {
+  const updateMongo = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/send", {
-        method: "POST", // or 'PUT'
+      const response = await fetch("http://localhost:3001/users/email/" + props.user.email, {
+      // const response = await fetch("http://localhost:3001/users/email/test@gmail.com", {
+        
+        method: "GET", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
         },
       });
   
       const result = await response.json();
-      console.log("Success:", result);
+      // 
+      if (result.message == "User not found") {
+        try {
+          const response = await fetch("http://localhost:3001/users/addUser", {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: props.user.firstName,
+              profileImage: props.user.profileImage,
+              email: props.user.email,
+              admin: false,
+            })
+          });
+          const result2 = await response.json()
+          console.log("success", result2.message)
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+      else {
+        console.log("success user found")
+      }
     } catch (error) {
       console.error("Error:", error);
     }
   }
+
+  useEffect(() => {
+    updateMongo()
+  }, [props])
+  
+  // send email
+  // const handleClick = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:3000/api/send", {
+  //       method: "POST", // or 'PUT'
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  
+  //     const result = await response.json();
+  //     console.log("Success:", result);
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // }
+
+
   return (
     <main className="bg-white font-josefin_sans">
       {/* <button  className="w-20 h-20 absolute top-10 bg-black" onClick={() => {handleClick()}}/> */}
