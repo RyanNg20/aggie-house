@@ -5,6 +5,7 @@ import UserCalendar from "@/app/dashboard/_components/UserCalendar";
 import AvailableTimeSlots from "@/app/dashboard/_components/AvailableTimeSlots";
 import ShiftsComponent from "./_components/ShiftsComponent";
 import HourTracker from "./_components/HourTracker";
+import ManageUsers from "./_components/MangageUsers";
 import { withAuthInfo } from '@propelauth/react'
 
 const Dashboard = withAuthInfo((props) => {
@@ -38,6 +39,7 @@ const Dashboard = withAuthInfo((props) => {
           <HourTracker />
         </div>
         <UserCalendar />
+        <ManageUsers />
       </div>
     </main>
   );
