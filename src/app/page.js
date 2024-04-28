@@ -11,7 +11,7 @@ const App = withAuthInfo((props) => {
   const router = useRouter()
   console.log(props)
   return (
-    <main className="overflow-y-hidden h-[100%] flex flex-col justify-center items-center bg-[#F5F5EF] shadow-none">
+    <main className="overflow-y-hidden h-[100%] flex flex-col justify-center items-center bg-[#F5F5EF] shadow-none bg-beige">
       <div className="mx-10">
         <Image src={require("../assets/banner.png")}
           className="w-[700px] shadow-lg"
