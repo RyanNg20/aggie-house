@@ -11,10 +11,10 @@ const App = withAuthInfo((props) => {
   const router = useRouter()
   console.log(props)
   return (
-    <main className="overflow-y-hidden h-[100%] flex flex-col justify-center items-center">
+    <main className="overflow-y-hidden h-[100%] flex flex-col justify-center items-center bg-[#F5F5EF] shadow-none">
       <div className="mx-10">
-        <Image src={require("../assets/aggie_house.png")}
-          className="w-[700px]"
+        <Image src={require("../assets/banner.png")}
+          className="w-[700px] shadow-lg"
         />
         {/* <Navbar/> */}
         {props.isLoggedIn?
@@ -23,7 +23,7 @@ const App = withAuthInfo((props) => {
               //   View Dashboard
               //   <Image src={require("../assets/chevron-forward-b.png")} className="h-[10px] w-[10px]"/>
               // </button>
-              <div className="flex flex-row justify-end mt-3 items-center">
+              <div className="flex flex-row justify-end mt-6 items-center">
                 <button 
                   className="mx-6 flex flex-row items-center gap-2 text-grey font-josefin_sans hover:opacity-50 transition-all" 
                   onClick={() => logoutFunction(true)}>
@@ -37,7 +37,7 @@ const App = withAuthInfo((props) => {
                 </button>
               </div>
           :
-          <div className="flex flex-row justify-end mt-3 items-center gap-3">
+          <div className="flex flex-row justify-end mt-6 items-center gap-3">
             <button 
               className="mx-6 flex flex-row items-center gap-2 text-grey font-josefin_sans hover:opacity-50 transition-all" 
               onClick={() => redirectToLoginPage()}
