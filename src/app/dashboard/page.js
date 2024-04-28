@@ -8,8 +8,24 @@ import HourTracker from "./_components/HourTracker";
 import { withAuthInfo } from '@propelauth/react'
 
 const Dashboard = withAuthInfo((props) => {
+  const handleClick = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/send", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
   return (
     <main className="bg-white font-josefin_sans">
+      {/* <button  className="w-20 h-20 absolute top-10 bg-black" onClick={() => {handleClick()}}/> */}
       <Navbar />
       <div className="flex min-h-screen flex-col justify-between p-24 gap-6">
         <div className="flex flex-row items-center gap-4 mt-4 py-2">
