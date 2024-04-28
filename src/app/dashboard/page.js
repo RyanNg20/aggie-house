@@ -9,12 +9,12 @@ import { withAuthInfo } from '@propelauth/react'
 
 const Dashboard = withAuthInfo((props) => {
   return (
-    <main className="bg-white">
+    <main className="bg-white font-josefin_sans">
       <Navbar />
       <div className="flex min-h-screen flex-col justify-between p-24 gap-6">
         <h1 className="text-grey text-4xl font-josefin_sans mt-6"> Dashboard </h1>
         <ShiftsComponent/>
-        <div className="flex flex-col md:flex-row md:justify-between justify-center">
+        <div className="flex flex-col md:flex-row md:justify-between justify-center gap-4">
           <AvailableTimeSlots />
           <HourTracker />
         </div>
