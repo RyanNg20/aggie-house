@@ -4,9 +4,10 @@ import { useState } from "react";
 import Link from 'next/link';
 import useMediaQuery from "../hooks/useMediaQuery";
 import Image from "next/image";
+import { withAuthInfo } from '@propelauth/react'
 
 
-const Navbar = ()  => {
+const Navbar = withAuthInfo((props)  => {
     const [isMenuToggled, setIsMenuToggled] = useState(false);
     const isAboveSmallScreens = useMediaQuery("(min-width: 870px)");
 
@@ -56,6 +57,6 @@ const Navbar = ()  => {
             </div>
         </nav>
     )
-}
+})
 
 export default Navbar

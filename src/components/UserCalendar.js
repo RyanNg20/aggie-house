@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Scheduler from 'devextreme-react/scheduler';
 import 'devextreme/dist/css/dx.light.css';
+import { withAuthInfo } from '@propelauth/react'
 
-const UserCalendar = () => {
+const UserCalendar = withAuthInfo((props) => {
   const [events, setEvents] = useState([]);
-
+  console.log(props.user)
   useEffect(() => {
     fetch('https://aggie-house-backend.onrender.com/timeSlots/available')
       .then(response => response.json())
@@ -37,6 +38,6 @@ const UserCalendar = () => {
       />
     </div>
   );
-};
+});
 
 export default UserCalendar;

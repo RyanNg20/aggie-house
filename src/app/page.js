@@ -10,9 +10,10 @@ const App = withAuthInfo((props) => {
 
   return (
     <main>
-      <Navbar/>
+      {/* <Navbar/> */}
       {props.isLoggedIn?
         <div>
+          {console.log(props.user)}
           <p>You are logged in as {props.user.email}</p>
           <button onClick={() => redirectToAccountPage()}>Account</button>
           <button onClick={() => logoutFunction(true)}>Logout</button>
@@ -28,15 +29,3 @@ const App = withAuthInfo((props) => {
 })
 
 export default App
-
-
-// const YourApp = withAuthInfo((props) => {
-//     // isLoggedIn and user are injected automatically from withAuthInfo
-//     if (props.isLoggedIn) {
-//         return <p>You are logged in as {props.user.email}</p>
-//     } else {
-//         return <p>You are not logged in</p>
-//     }
-// })
-
-// export default YourApp

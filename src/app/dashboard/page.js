@@ -1,15 +1,18 @@
+"use client"
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import UserCalendar from "@/components/UserCalendar";
 import AvailableTimeSlots from "@/components/AvailableTimeSlots";
+import { withAuthInfo } from '@propelauth/react'
 
-export default function Home() {
+const Dashboard = withAuthInfo((props) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Navbar />
-      test
       <AvailableTimeSlots />
       <UserCalendar />
     </main>
   );
-}
+})
+
+export default Dashboard
