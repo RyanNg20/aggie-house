@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import Landing from "./landing";
+import Navbar from "../components/Navbar.js"
 import { withAuthInfo, useRedirectFunctions, useLogoutFunction } from '@propelauth/react'
 
 const App = withAuthInfo((props) => {
@@ -9,6 +10,7 @@ const App = withAuthInfo((props) => {
 
   return (
     <main>
+      <Navbar/>
       {props.isLoggedIn?
         <div>
           <p>You are logged in as {props.user.email}</p>
