@@ -12,7 +12,10 @@ const Dashboard = withAuthInfo((props) => {
     <main className="bg-white font-josefin_sans">
       <Navbar />
       <div className="flex min-h-screen flex-col justify-between p-24 gap-6">
-        <h1 className="text-grey text-4xl font-josefin_sans mt-6"> Dashboard </h1>
+        <div className="flex flex-row items-center gap-4 mt-4 py-2">
+            <Image src={require("../../assets/dashboard.png")} width={50}></Image>
+            <h1 className="text-grey text-4xl font-josefin_sans"> Dashboard </h1>
+        </div>
         <ShiftsComponent/>
         <div className="flex flex-col md:flex-row md:justify-between justify-center gap-4">
           <AvailableTimeSlots />

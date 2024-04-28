@@ -24,9 +24,9 @@ const Navbar = withAuthInfo((props)  => {
             {/* DESKTOP NAV */}
             {isAboveSmallScreens ? (
                 <div className="text-beige font-montserrat flex justify-between gap-8 items-center text-lg font-medium">
-                    <Link href="/dashboard" className="hover:text-white transition duration-500"> To Do </Link>
-                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Resources </Link>
-                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
+                    <Link href="/todo" className="hover:text-white transition duration-500"> To Do </Link>
+                    <Link href="/resources" className="hover:text-white transition duration-500"> Resources </Link>
+                    <Link href="/leaderboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
                     <img src={props.user.pictureUrl} className="w-10 h-10 rounded-full"/>
                 </div>
             ) : ( <button className="rounded-full bg-white p-2" 
@@ -49,7 +49,7 @@ const Navbar = withAuthInfo((props)  => {
                   {/* MENU ITEMS */}
                   <div className="flex flex-col font-montserrat gap-10 ml-[33%] text-2xl text-beige"> 
                     <Link href="/dashboard" className="hover:text-white transition duration-500"> To Do </Link>
-                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Resources </Link>
+                    <Link href="/resources" className="hover:text-white transition duration-500"> Resources </Link>
                     <Link href="/dashboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
                   </div>
                 </div>
