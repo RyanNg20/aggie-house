@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
-import Board from "./_component/Board";
+import Board from "./_components/Board";
 import { withAuthInfo } from '@propelauth/react'
 
 const Leaderboard = withAuthInfo((props) => {
