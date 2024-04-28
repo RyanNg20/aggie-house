@@ -17,16 +17,15 @@ const Navbar = withAuthInfo((props)  => {
             <Link href="/dashboard" passHref>
             <div className="flex flex-row justify-center items-center gap-4">
                 <Image className="my-auto" src={require("../assets/Logo.png")} width={50}></Image>
-                <h1 className="font-bold font-josefin_sans text-beige">Aggie House Volunteers</h1>
+                <h1 className="font-josefin_sans text-beige text-2xl">Aggie House Volunteers</h1>
             </div>
             </Link>
             {/* DESKTOP NAV */}
             {isAboveSmallScreens ? (
                 <div className="text-beige font-montserrat flex justify-between gap-8 items-center text-lg font-medium">
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> To Do </Link>
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Calendar </Link>
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Resources </Link>
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Leaderboard </Link>
+                    <Link href="/dashboard" className="hover:text-white transition duration-500"> To Do </Link>
+                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Resources </Link>
+                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
                 </div>
             ) : ( <button className="rounded-full bg-black p-2" 
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -36,21 +35,20 @@ const Navbar = withAuthInfo((props)  => {
               </button>)}
             {/* MOBILE MENU POPUP */}
             {!isAboveSmallScreens && isMenuToggled && (
-                 <div className="fixed right-0 bottom-0 h-full bg-beige w-[300px]"> 
+                 <div className="fixed right-0 bottom-0 h-full bg-grey w-[300px]"> 
                  {/* CLOSE ICON */}
                  <div className = "flex justify-end p-12">
                     <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="black" fill-opacity="0.54"/>
+                    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="white" fill-opacity="0.54"/>
                     </svg>
                     </button>
                  </div>
                   {/* MENU ITEMS */}
                   <div className="flex flex-col font-montserrat gap-10 ml-[33%] text-2xl text-beige"> 
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> To Do </Link>
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Calendar </Link>
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Resources </Link>
-                    <Link href="/dashboard" className="hover:text-teal transition duration-500 underline"> Leaderboard </Link>
+                    <Link href="/dashboard" className="hover:text-white transition duration-500"> To Do </Link>
+                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Resources </Link>
+                    <Link href="/dashboard" className="hover:text-white transition duration-500"> Leaderboard </Link>
                   </div>
                 </div>
             )}

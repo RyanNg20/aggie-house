@@ -23,8 +23,8 @@ const UserCalendar = withAuthInfo((props) => {
   }, []);
 
   return (
-    <div>
-      <h2>Calendar</h2>
+    <div className='bg-grey rounded-2xl p-4 drop-shadow-lg gap-4 flex flex-col'>
+      <h2 className="font-josefin_sans text-xl px-4 py-4 text-white">Calendar</h2>
       <Scheduler
         timeZone="America/Los_Angeles"
         dataSource={events}
